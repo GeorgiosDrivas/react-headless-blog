@@ -1,6 +1,30 @@
-$primary-color: #4caf50;
+$primary-color: red;
 
 #root {
-  background-color: $primary-color;
-  padding: 20px;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li {
+  margin: 0 10px;
+}
+
+#nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
