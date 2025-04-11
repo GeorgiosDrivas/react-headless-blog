@@ -3,7 +3,7 @@ export default function Nav() {
     <>
       <ul>
         <li>HOME</li>
-        <li>BLOG</li>
+        <li>ABOUT</li>
         <li>CONTACT</li>
       </ul>
     </>
