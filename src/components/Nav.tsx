@@ -1,10 +1,18 @@
+import { Link } from "react-router-dom";
+
 export default function Nav() {
   return (
     <>
       <ul>
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>CONTACT</li>
+        <li>
+          <Link to="/">HOME</Link>
+        </li>
+        <li>
+          <Link to="/about">ABOUT</Link>
+        </li>
+        <li>
+          <Link to="/contact">CONTACT</Link>
+        </li>
       </ul>
     </>
   );
