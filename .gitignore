@@ -17,6 +17,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Var
-./variables.ts
