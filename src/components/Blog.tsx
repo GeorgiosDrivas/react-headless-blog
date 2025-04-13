@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiPath } from "../../variables";
-
-type CategoryType = {
-  name: string;
-};
+import { CategoryType } from "../types/blog-page-types";
 
 export default function Blog() {
   const [categories, setCategories] = useState<string[]>([]);
