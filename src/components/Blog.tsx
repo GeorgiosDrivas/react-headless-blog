@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { apiPath } from "../../variables";
 import { CategoryType } from "../types/blog-page-types";
+import { Link } from "react-router-dom";
 
 export default function Blog() {
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
 
   useEffect(() => {
     fetch(apiPath)
       .then((response) => response.json())
       .then((data) => {
         data.map((category: CategoryType) => {
-          setCategories((prev) => [...prev, category.name]);
+          setCategories((prev) => [...prev, category]);
         });
       });
   }, []);
@@ -19,9 +20,13 @@ export default function Blog() {
     <>
       <div id="categories">
         {categories.map((category) => (
-          <div key={category} className="blog-category">
-            <p>{category}</p>
-          </div>
+          <Link
+            key={category.name}
+            className="blog-category"
+            to={`/blog/category/${category.slug}`}
+          >
+            <p>{category.name}</p>
+          </Link>
         ))}
       </div>
     </>
