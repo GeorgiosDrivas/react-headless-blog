@@ -20,11 +20,13 @@ export default function Blog() {
 
   return (
     <>
-      {categories.map((category) => (
-        <div key={category} className="blog-category">
-          <h2>{category}</h2>
-        </div>
-      ))}
+      <div id="categories">
+        {categories.map((category) => (
+          <div key={category} className="blog-category">
+            <p>{category}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

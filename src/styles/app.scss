@@ -6,7 +6,7 @@ $primary-color: red;
 
 body {
   margin: 0;
-  padding: 0 10px;
+  padding: 0;
 }
 
 ul {
@@ -26,8 +26,21 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
+  border: 1px solid;
 }
 
 #search-icon {
+  cursor: pointer;
+}
+
+#categories {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#categories p {
+  font-size: 20px;
   cursor: pointer;
 }
