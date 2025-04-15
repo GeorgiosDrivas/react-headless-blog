@@ -10,9 +10,7 @@ export default function Blog() {
     fetch(apiPath)
       .then((response) => response.json())
       .then((data) => {
-        data.map((category: CategoryType) => {
-          setCategories((prev) => [...prev, category]);
-        });
+        setCategories(data);
       });
   }, []);
 
