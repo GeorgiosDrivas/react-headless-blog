@@ -8,4 +8,5 @@ export type PostsType = {
       }
     ];
   };
+  link: string;
 };

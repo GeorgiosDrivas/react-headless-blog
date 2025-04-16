@@ -1,27 +1,24 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-type Post = {
-  id: number;
-  title: { rendered: string };
-  slug: string;
-}
+import { PostsType } from "../types/posts-types";
+import { apiPostsPath } from "../../variables";
 
 const CategoryPosts = () => {
   const { category } = useParams();
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostsType[]>([]);
 
   useEffect(() => {
     const fetchCategoryPosts = async () => {
       try {
-        const catRes = await fetch(`http://headless-blog.local/wp-json/wp/v2/categories?slug=${category}`);
+        const catRes = await fetch(
+          `http://headless-blog.local/wp-json/wp/v2/categories?slug=${category}`
+        );
         const catData = await catRes.json();
 
         if (catData.length === 0) return;
 
         const categoryId = catData[0].id;
-
-        const postRes = await fetch(`http://headless-blog.local/wp-json/wp/v2/posts?categories=${categoryId}`);
+        const postRes = await fetch(`${apiPostsPath}&categories=${categoryId}`);
         const postData = await postRes.json();
 
         setPosts(postData);
@@ -34,15 +31,20 @@ const CategoryPosts = () => {
   }, [category]);
 
   return (
-    <div>
-      <h2>Posts in "{category}"</h2>
-      <ul>
-        {posts.map(post => (
-          <li key={post.id}>
-            <Link to={`/blog/${post.slug}`}>{post.title.rendered}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="posts">
+      {posts.map((post: PostsType) => (
+        <div key={post.id} className="single-post">
+          <div className="post-img">
+            {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
+              <img
+                src={post._embedded["wp:featuredmedia"][0].source_url}
+                alt={post.title.rendered}
+              />
+            )}
+          </div>
+          <a href={post.link}>{post.title.rendered}</a>
+        </div>
+      ))}
     </div>
   );
 };

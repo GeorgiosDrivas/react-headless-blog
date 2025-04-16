@@ -43,7 +43,7 @@ export default function Blog() {
           </Link>
         ))}
       </div>
-      <div id="posts">
+      <div className="posts">
         {posts.map((post: PostsType) => (
           <div key={post.id} className="single-post">
             <div className="post-img">
@@ -54,7 +54,7 @@ export default function Blog() {
                 />
               )}
             </div>
-            <p>{post.title.rendered}</p>
+            <a href={post.link}>{post.title.rendered}</a>
           </div>
         ))}
       </div>
