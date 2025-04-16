@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { apiCategoriesPath, apiPostsPath } from "../../variables";
 import { CategoryType } from "../types/blog-page-types";
 import { Link } from "react-router-dom";
-
-type PostsType = {
-  id: number;
-  title: { rendered: string };
-};
+import { PostsType } from "../types/posts-types";
 
 export default function Blog() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -50,6 +46,14 @@ export default function Blog() {
       <div id="posts">
         {posts.map((post: PostsType) => (
           <div key={post.id} className="single-post">
+            <div className="post-img">
+              {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
+                <img
+                  src={post._embedded["wp:featuredmedia"][0].source_url}
+                  alt={post.title.rendered}
+                />
+              )}
+            </div>
             <p>{post.title.rendered}</p>
           </div>
         ))}
