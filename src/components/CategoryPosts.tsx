@@ -42,7 +42,9 @@ const CategoryPosts = () => {
               />
             )}
           </div>
-          <a href={post.link}>{post.title.rendered}</a>
+          <a href={post.link} className="post-title">
+            {post.title.rendered}
+          </a>
         </div>
       ))}
     </div>

@@ -56,7 +56,6 @@ li {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
 }
 
 .single-post p {
@@ -85,4 +84,10 @@ li {
   display: block;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.post-title {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
 }
