@@ -56,10 +56,6 @@ li {
 
 .posts {
   margin-top: 70px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 .single-post p {
@@ -68,18 +64,17 @@ li {
 }
 
 .single-post {
-  width: calc(50% - 10px);
   box-sizing: border-box;
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  align-items: top;
+  gap: 20px;
 }
 
 .post-img {
-  width: 500px;
-  height: 450px;
+  width: 600px;
+  height: 300px;
 }
 
 .post-img img {
