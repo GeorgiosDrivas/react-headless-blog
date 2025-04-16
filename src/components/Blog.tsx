@@ -33,15 +33,17 @@ export default function Blog() {
   return (
     <>
       <div id="categories">
-        {categories.map((category) => (
-          <Link
-            key={category.name}
-            className="blog-category"
-            to={`/blog/category/${category.slug}`}
-          >
-            <p>{category.name}</p>
-          </Link>
-        ))}
+        {categories
+          .filter((cat) => cat.name !== "Uncategorized")
+          .map((category) => (
+            <Link
+              key={category.name}
+              className="blog-category"
+              to={`/blog/category/${category.slug}`}
+            >
+              <p>{category.name}</p>
+            </Link>
+          ))}
       </div>
       <div className="posts">
         {posts.map((post: PostsType) => (
