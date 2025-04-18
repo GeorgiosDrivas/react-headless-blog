@@ -42,9 +42,12 @@ const CategoryPosts = () => {
               />
             )}
           </div>
-          <a href={post.link} className="post-title">
-            {post.title.rendered}
-          </a>
+          <div className="post-details">
+            <a href={post.link} className="post-title">
+              {post.title.rendered}
+            </a>
+            <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+          </div>
         </div>
       ))}
     </div>

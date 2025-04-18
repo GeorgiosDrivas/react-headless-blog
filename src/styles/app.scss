@@ -68,7 +68,7 @@ li {
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: start;
   gap: 20px;
 }
 
@@ -89,4 +89,11 @@ li {
   font-size: 25px;
   text-align: center;
   margin-top: 10px;
+}
+
+.post-details {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
 }

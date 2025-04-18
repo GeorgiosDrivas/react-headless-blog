@@ -56,9 +56,14 @@ export default function Blog() {
                 />
               )}
             </div>
-            <a href={post.link} className="post-title">
-              {post.title.rendered}
-            </a>
+            <div className="post-details">
+              <p className="post-title">{post.title.rendered}</p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.excerpt.rendered.slice(0, 150),
+                }}
+              />
+            </div>
           </div>
         ))}
       </div>
