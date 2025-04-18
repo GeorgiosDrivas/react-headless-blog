@@ -58,11 +58,6 @@ li {
   margin-top: 70px;
 }
 
-.single-post p {
-  font-size: 20px;
-  text-align: center;
-}
-
 .single-post {
   box-sizing: border-box;
   margin-bottom: 40px;
@@ -96,4 +91,10 @@ li {
   justify-content: start;
   align-items: start;
   flex-direction: column;
+  width: 50%;
+}
+
+.post-excerpt {
+  text-align: start;
+  font-size: 18px;
 }

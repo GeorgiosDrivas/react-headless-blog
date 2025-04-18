@@ -59,6 +59,7 @@ export default function Blog() {
             <div className="post-details">
               <p className="post-title">{post.title.rendered}</p>
               <div
+                className="post-excerpt"
                 dangerouslySetInnerHTML={{
                   __html: post.excerpt.rendered.slice(0, 150),
                 }}

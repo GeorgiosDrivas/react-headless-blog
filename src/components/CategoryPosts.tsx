@@ -46,7 +46,12 @@ const CategoryPosts = () => {
             <a href={post.link} className="post-title">
               {post.title.rendered}
             </a>
-            <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+            <div
+              className="post-excerpt"
+              dangerouslySetInnerHTML={{
+                __html: post.excerpt.rendered.slice(0, 150),
+              }}
+            />
           </div>
         </div>
       ))}
