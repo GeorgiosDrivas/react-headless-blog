@@ -21,12 +21,14 @@ export default function Post() {
 
   return (
     <div className="container single-post-page">
-      <h1>{post.title.rendered}</h1>
+      <h1 className="single-article-title">{post.title.rendered}</h1>
       {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
-        <img
-          src={post._embedded["wp:featuredmedia"][0].source_url}
-          alt={post.title.rendered}
-        />
+        <div className="sinlgle-article-image">
+          <img
+            src={post._embedded["wp:featuredmedia"][0].source_url}
+            alt={post.title.rendered}
+          />
+        </div>
       )}
       <div
         className="post-content"
