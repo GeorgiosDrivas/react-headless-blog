@@ -31,7 +31,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div id="categories">
         {categories
           .filter((cat) => cat.name !== "Uncategorized")
@@ -69,6 +69,6 @@ export default function Blog() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
