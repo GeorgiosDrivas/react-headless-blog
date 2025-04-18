@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import Nav from "./components/Nav";
 import Blog from "./components/Blog";
 import CategoryPosts from "./components/CategoryPosts";
+import ArticlePage from "./components/articlePage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog/category/:category" element={<CategoryPosts />} />
+          <Route path="/blog/post/:slug" element={<ArticlePage />} />
         </Routes>
       </BrowserRouter>
     </>
