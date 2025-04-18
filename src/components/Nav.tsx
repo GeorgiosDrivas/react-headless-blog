@@ -5,7 +5,9 @@ export default function Nav() {
   return (
     <>
       <div id="nav-wrap">
-        <h1>TravelBlog</h1>
+        <Link to={"/"}>
+          <h1>TravelBlog</h1>
+        </Link>
         <ul>
           <li>
             <Link to="/">HOME</Link>

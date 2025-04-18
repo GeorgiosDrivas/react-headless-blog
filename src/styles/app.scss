@@ -84,6 +84,7 @@ li {
   font-size: 25px;
   text-align: center;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .post-details {
@@ -94,7 +95,8 @@ li {
   width: 50%;
 }
 
-.post-excerpt {
+.post-excerpt p {
+  font-weight: 200;
   text-align: start;
   font-size: 18px;
 }
