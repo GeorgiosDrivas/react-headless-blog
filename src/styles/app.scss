@@ -82,7 +82,7 @@ li {
 
 .post-title {
   font-size: 25px;
-  margin-top: 10px;
+  margin: 0;
   font-weight: 500;
 }
 
@@ -98,4 +98,10 @@ li {
   font-weight: 200;
   text-align: start;
   font-size: 18px;
+  margin-top: 5px;
+}
+
+.post-date {
+  margin-bottom: 0;
+  font-weight: 500;
 }

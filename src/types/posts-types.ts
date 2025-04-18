@@ -10,4 +10,5 @@ export type PostsType = {
   };
   link: string;
   excerpt: { rendered: string };
+  date: string;
 };

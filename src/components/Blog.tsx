@@ -58,6 +58,7 @@ export default function Blog() {
             </div>
             <div className="post-details">
               <p className="post-title">{post.title.rendered}</p>
+              <p className="post-date">{post.date.split("T")[0]}</p>
               <div
                 className="post-excerpt"
                 dangerouslySetInnerHTML={{
