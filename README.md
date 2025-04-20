@@ -1,54 +1,26 @@
-# React + TypeScript + Vite
+# Headless Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based headless blog application that fetches data from a WordPress backend using its REST API. The project is built with TypeScript, React Router, and Vite, and styled using SCSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home Page**: A simple landing page.
+- **Blog Page**: Displays a list of blog posts and categories fetched from the WordPress API.
+- **Category Posts**: Shows posts filtered by category.
+- **Article Page**: Displays the full content of a single blog post.
+- **Contact Page**: A placeholder contact page.
+- **Responsive Navigation**: Includes a navigation bar with links to different sections of the site.
 
-## Expanding the ESLint configuration
+## API Endpoints
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The application fetches data from the following WordPress REST API endpoints:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Categories**: http://headless-blog.local/wp-json/wp/v2/categories
+- **Posts**: http://headless-blog.local/wp-json/wp/v2/posts?_embed
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Frontend**: React, React Router, TypeScript, SCSS
+- **Build Tool**: Vite
+- **Linting**: ESLint
+- **Backend**: WordPress REST API
