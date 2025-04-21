@@ -47,9 +47,9 @@ const CategoryPosts = () => {
               )}
             </div>
             <div className="post-details">
-              <a href={post.link} className="post-title">
+              <Link to={`/blog/post/${post.slug}`} className="post-title">
                 {post.title.rendered}
-              </a>
+              </Link>
               <div
                 className="post-excerpt"
                 dangerouslySetInnerHTML={{
