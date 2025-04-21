@@ -60,6 +60,12 @@ const CategoryPosts = () => {
                   __html: post.excerpt.rendered.slice(0, 150),
                 }}
               />
+              <LinkComponent
+                url={`/blog/post/${post.slug}`}
+                className={"read-more-btn"}
+              >
+                Read more
+              </LinkComponent>
             </div>
           </div>
         ))}
