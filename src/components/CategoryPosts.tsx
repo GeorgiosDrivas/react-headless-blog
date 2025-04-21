@@ -1,7 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PostsType } from "../types/posts-types";
 import { apiPostsPath } from "../../variables";
+import LinkComponent from "./Link";
 
 const CategoryPosts = () => {
   const { category } = useParams();
@@ -32,9 +33,9 @@ const CategoryPosts = () => {
 
   return (
     <div className="container">
-      <Link className="back-link" to={"/blog"}>
+      <LinkComponent className={"back-link"} url={"/blog"}>
         Back
-      </Link>
+      </LinkComponent>
       <div className="posts">
         {posts.map((post: PostsType) => (
           <div key={post.id} className="single-post">
@@ -47,9 +48,12 @@ const CategoryPosts = () => {
               )}
             </div>
             <div className="post-details">
-              <Link to={`/blog/post/${post.slug}`} className="post-title">
+              <LinkComponent
+                url={`/blog/post/${post.slug}`}
+                className={"post-title"}
+              >
                 {post.title.rendered}
-              </Link>
+              </LinkComponent>
               <div
                 className="post-excerpt"
                 dangerouslySetInnerHTML={{

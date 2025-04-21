@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { apiCategoriesPath, apiPostsPath } from "../../variables";
 import { CategoryType } from "../types/blog-page-types";
-import { Link } from "react-router-dom";
 import { PostsType } from "../types/posts-types";
+import LinkComponent from "./Link";
 
 export default function Blog() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -36,13 +36,13 @@ export default function Blog() {
         {categories
           .filter((cat) => cat.name !== "Uncategorized")
           .map((category) => (
-            <Link
+            <LinkComponent
+              url={`/blog/category/${category.slug}`}
+              className={"blog-category"}
               key={category.name}
-              className="blog-category"
-              to={`/blog/category/${category.slug}`}
             >
               <p>{category.name}</p>
-            </Link>
+            </LinkComponent>
           ))}
       </div>
       <div className="posts">
@@ -57,9 +57,12 @@ export default function Blog() {
               )}
             </div>
             <div className="post-details">
-              <Link to={`/blog/post/${post.slug}`} className="post-title">
+              <LinkComponent
+                className={"post-title"}
+                url={`/blog/post/${post.slug}`}
+              >
                 <p>{post.title.rendered}</p>
-              </Link>
+              </LinkComponent>
               <p className="post-date">{post.date.split("T")[0]}</p>
               <div
                 className="post-excerpt"
