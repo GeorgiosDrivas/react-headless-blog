@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PostsType } from "../types/posts-types";
 import { apiPostsPath } from "../../variables";
 
@@ -21,6 +21,9 @@ export default function Post() {
 
   return (
     <div className="container single-post-page">
+      <Link className="back-link" to={"/blog"}>
+        Back
+      </Link>
       <h1 className="single-article-title">{post.title.rendered}</h1>
       {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
         <div className="sinlgle-article-image">
