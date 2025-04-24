@@ -156,3 +156,22 @@ li {
   align-items: center;
   margin-top: 20px;
 }
+
+#tech-stack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#tech-stack .tech-stack-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-stack-item img {
+  width: auto;
+  height: 80px;
+}

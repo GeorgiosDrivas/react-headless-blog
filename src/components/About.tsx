@@ -12,14 +12,24 @@ export default function About() {
         </section>
         <section>
           <h2>Tech Stach</h2>
-          <ul>
-            <li>WordPress API</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>SASS</li>
-            <li>Vite</li>
-            <li>React Router</li>
-          </ul>
+          <div id="tech-stack">
+            <div className="tech-stack-item">
+              <img src="/wordpress.png" alt="WordPress" />
+              <p>WordPress</p>
+            </div>
+            <div className="tech-stack-item">
+              <img src="/react.png" alt="React" />
+              <p>React</p>
+            </div>
+            <div className="tech-stack-item">
+              <img src="/typescript.png" alt="TypeScript" />
+              <p>TypeScript</p>
+            </div>
+            <div className="tech-stack-item">
+              <img src="/sass.png" alt="SASS" />
+              <p>SASS</p>
+            </div>
+          </div>
         </section>
         <section>
           <h2>Resources</h2>
