@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/app.scss";
-import Home from "./components/Home";
 import About from "./components/About";
 import Nav from "./components/Nav";
 import Blog from "./components/Blog";
@@ -13,11 +12,10 @@ export default function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/" element={<Blog />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog/category/:category" element={<CategoryPosts />} />
-          <Route path="/blog/post/:slug" element={<ArticlePage />} />
+          <Route path="/category/:category" element={<CategoryPosts />} />
+          <Route path="/post/:slug" element={<ArticlePage />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -33,7 +33,7 @@ const CategoryPosts = () => {
 
   return (
     <div className="container">
-      <LinkComponent className={"back-link"} url={"/blog"}>
+      <LinkComponent className={"back-link"} url={"/"}>
         Back
       </LinkComponent>
       <div className="posts">
@@ -49,7 +49,7 @@ const CategoryPosts = () => {
             </div>
             <div className="post-details">
               <LinkComponent
-                url={`/blog/post/${post.slug}`}
+                url={`/post/${post.slug}`}
                 className={"post-title"}
               >
                 {post.title.rendered}
@@ -61,7 +61,7 @@ const CategoryPosts = () => {
                 }}
               />
               <LinkComponent
-                url={`/blog/post/${post.slug}`}
+                url={`/post/${post.slug}`}
                 className={"read-more-btn"}
               >
                 Read more

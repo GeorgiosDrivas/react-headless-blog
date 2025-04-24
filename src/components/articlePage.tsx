@@ -22,7 +22,7 @@ export default function Post() {
 
   return (
     <div className="container single-post-page">
-      <LinkComponent className={"back-link"} url={"/blog"}>
+      <LinkComponent className={"back-link"} url={"/"}>
         Back
       </LinkComponent>
       <h1 className="single-article-title">{post.title.rendered}</h1>

@@ -37,7 +37,7 @@ export default function Blog() {
           .filter((cat) => cat.name !== "Uncategorized")
           .map((category) => (
             <LinkComponent
-              url={`/blog/category/${category.slug}`}
+              url={`/category/${category.slug}`}
               className={"blog-category"}
               key={category.name}
             >
@@ -59,7 +59,7 @@ export default function Blog() {
             <div className="post-details">
               <LinkComponent
                 className={"post-title"}
-                url={`/blog/post/${post.slug}`}
+                url={`/post/${post.slug}`}
               >
                 <p>{post.title.rendered}</p>
               </LinkComponent>
@@ -71,7 +71,7 @@ export default function Blog() {
                 }}
               />
               <LinkComponent
-                url={`/blog/post/${post.slug}`}
+                url={`/post/${post.slug}`}
                 className={"read-more-btn"}
               >
                 Read more
