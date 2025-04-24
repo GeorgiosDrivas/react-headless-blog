@@ -16,7 +16,7 @@ a {
   color: inherit;
 }
 
-ul {
+ul:not(#contact ul) {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -139,4 +139,20 @@ li {
 
 .read-more-btn:hover {
   text-decoration: underline;
+}
+
+#contact section:not(#contact section:last-child) {
+  margin-bottom: 70px;
+}
+
+#contact h2 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+#contact_resources {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
