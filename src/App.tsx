@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/app.scss";
 import Home from "./components/Home";
-import Contact from "./components/Contact";
+import About from "./components/About";
 import Nav from "./components/Nav";
 import Blog from "./components/Blog";
 import CategoryPosts from "./components/CategoryPosts";
@@ -15,7 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/blog/category/:category" element={<CategoryPosts />} />
           <Route path="/blog/post/:slug" element={<ArticlePage />} />
         </Routes>

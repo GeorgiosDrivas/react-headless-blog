@@ -16,7 +16,7 @@ export default function Nav() {
             <Link to="/blog">BLOG</Link>
           </li>
           <li>
-            <Link to="/contact">CONTACT</Link>
+            <Link to="/about">ABOUT</Link>
           </li>
         </ul>
         <SearchSvg />
