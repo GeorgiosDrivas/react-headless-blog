@@ -175,3 +175,16 @@ li {
   width: auto;
   height: 80px;
 }
+
+#search-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-wrap button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}

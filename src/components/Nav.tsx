@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchSvg from "../assets/searchSvg";
+import Search from "./Search";
 
 export default function Nav() {
   return (
@@ -16,7 +16,7 @@ export default function Nav() {
             <Link to="/about">ABOUT</Link>
           </li>
         </ul>
-        <SearchSvg />
+        <Search />
       </div>
     </>
   );
