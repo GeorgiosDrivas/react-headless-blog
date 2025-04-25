@@ -1,9 +1,11 @@
-import { useState } from "react";
 import SearchSvg from "../assets/searchSvg";
 
-export default function Search() {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+type NavProps = {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+};
 
+export default function Search({ searchQuery, setSearchQuery }: NavProps) {
   const handleSearch = (SearchString: string) => {
     console.log("Searching for:", SearchString);
   };

@@ -4,9 +4,13 @@ import { CategoryType } from "../types/blog-page-types";
 import { PostsType } from "../types/posts-types";
 import LinkComponent from "./Link";
 
-export default function Blog() {
+type BlogProps = {
+  searchQuery: string;
+};
+
+export default function Blog({ searchQuery }: BlogProps) {
   const [categories, setCategories] = useState<CategoryType[]>([]);
-  const [posts, setPosts] = useState<PostsType[]>([]);
+  const [articles, setArticles] = useState<PostsType[]>([]);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -21,14 +25,20 @@ export default function Blog() {
       fetch(apiPostsPath)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          setPosts(data);
+          setArticles(data);
         });
     };
 
     getCategories();
     getPosts();
   }, []);
+
+  const filteredArticles =
+    searchQuery != ""
+      ? articles.filter((article) =>
+          article.title.rendered.includes(searchQuery)
+        )
+      : articles;
 
   return (
     <div className="container">
@@ -46,32 +56,32 @@ export default function Blog() {
           ))}
       </div>
       <div className="posts">
-        {posts.map((post: PostsType) => (
-          <div key={post.id} className="single-post">
+        {filteredArticles.map((article: PostsType) => (
+          <div key={article.id} className="single-post">
             <div className="post-img">
-              {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
+              {article._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
                 <img
-                  src={post._embedded["wp:featuredmedia"][0].source_url}
-                  alt={post.title.rendered}
+                  src={article._embedded["wp:featuredmedia"][0].source_url}
+                  alt={article.title.rendered}
                 />
               )}
             </div>
             <div className="post-details">
               <LinkComponent
                 className={"post-title"}
-                url={`/post/${post.slug}`}
+                url={`/post/${article.slug}`}
               >
-                <p>{post.title.rendered}</p>
+                <p>{article.title.rendered}</p>
               </LinkComponent>
-              <p className="post-date">{post.date.split("T")[0]}</p>
+              <p className="post-date">{article.date.split("T")[0]}</p>
               <div
                 className="post-excerpt"
                 dangerouslySetInnerHTML={{
-                  __html: post.excerpt.rendered.slice(0, 150),
+                  __html: article.excerpt.rendered.slice(0, 150),
                 }}
               />
               <LinkComponent
-                url={`/post/${post.slug}`}
+                url={`/post/${article.slug}`}
                 className={"read-more-btn"}
               >
                 Read more

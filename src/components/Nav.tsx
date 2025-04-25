@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
 
-export default function Nav() {
+type NavProps = {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+};
+
+export default function Nav({ searchQuery, setSearchQuery }: NavProps) {
   return (
     <>
       <div id="nav-wrap">
@@ -16,7 +21,7 @@ export default function Nav() {
             <Link to="/about">ABOUT</Link>
           </li>
         </ul>
-        <Search />
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
     </>
   );
