@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
-
-type NavProps = {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-};
+import { NavProps } from "../types/search-types";
 
 export default function Nav({ searchQuery, setSearchQuery }: NavProps) {
   return (

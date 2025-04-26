@@ -1,9 +1,5 @@
 import SearchSvg from "../assets/searchSvg";
-
-type NavProps = {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-};
+import { NavProps } from "../types/search-types";
 
 export default function Search({ searchQuery, setSearchQuery }: NavProps) {
   const handleSearch = (SearchString: string) => {

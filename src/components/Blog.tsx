@@ -3,10 +3,7 @@ import { apiCategoriesPath, apiPostsPath } from "../../variables";
 import { CategoryType } from "../types/blog-page-types";
 import { PostsType } from "../types/posts-types";
 import LinkComponent from "./Link";
-
-type BlogProps = {
-  searchQuery: string;
-};
+import { BlogProps } from "../types/search-types";
 
 export default function Blog({ searchQuery }: BlogProps) {
   const [categories, setCategories] = useState<CategoryType[]>([]);
