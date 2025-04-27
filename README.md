@@ -17,7 +17,7 @@ This is a React-based headless blog application that fetches data from a WordPre
 
 ## Technologies Used
 
-- **Frontend**: React, React Router, TypeScript, SCSS
+- **Frontend**: React, TypeScript, SCSS, React Router, Context API
 - **Build Tool**: Vite
 - **Linting**: ESLint
 - **Backend**: WordPress REST API
