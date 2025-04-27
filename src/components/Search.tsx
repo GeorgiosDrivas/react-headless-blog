@@ -1,10 +1,7 @@
-import SearchSvg from "../assets/searchSvg";
-import { NavProps } from "../types/search-types";
+import { useSearchContext } from "../searchContext";
 
-export default function Search({ searchQuery, setSearchQuery }: NavProps) {
-  const handleSearch = (SearchString: string) => {
-    console.log("Searching for:", SearchString);
-  };
+export default function Search() {
+  const { searchQuery, setSearchQuery } = useSearchContext();
 
   return (
     <>
@@ -15,9 +12,6 @@ export default function Search({ searchQuery, setSearchQuery }: NavProps) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.currentTarget.value)}
         />
-        <button onClick={() => handleSearch(searchQuery)}>
-          <SearchSvg />
-        </button>
       </div>
     </>
   );

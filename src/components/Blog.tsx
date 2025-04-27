@@ -3,11 +3,12 @@ import { apiCategoriesPath, apiPostsPath } from "../../variables";
 import { CategoryType } from "../types/blog-page-types";
 import { PostsType } from "../types/posts-types";
 import LinkComponent from "./Link";
-import { BlogProps } from "../types/search-types";
+import { useSearchContext } from "../searchContext";
 
-export default function Blog({ searchQuery }: BlogProps) {
+export default function Blog() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [articles, setArticles] = useState<PostsType[]>([]);
+  const { searchQuery } = useSearchContext();
 
   useEffect(() => {
     const getCategories = async () => {

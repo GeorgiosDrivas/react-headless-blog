@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { PostsType } from "../types/posts-types";
 import { apiPostsPath } from "../../variables";
 import LinkComponent from "./Link";
-import { BlogProps } from "../types/search-types";
+import { useSearchContext } from "../searchContext";
 
-const CategoryPosts = ({ searchQuery }: BlogProps) => {
+const CategoryPosts = () => {
   const { category } = useParams();
   const [posts, setPosts] = useState<PostsType[]>([]);
+  const { searchQuery } = useSearchContext();
 
   useEffect(() => {
     const fetchCategoryPosts = async () => {
