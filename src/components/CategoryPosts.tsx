@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { PostsType } from "../types/posts-types";
 import { apiPostsPath } from "../../variables";
 import LinkComponent from "./Link";
+import { BlogProps } from "../types/search-types";
 
-const CategoryPosts = () => {
+const CategoryPosts = ({ searchQuery }: BlogProps) => {
   const { category } = useParams();
   const [posts, setPosts] = useState<PostsType[]>([]);
 
@@ -31,13 +32,17 @@ const CategoryPosts = () => {
     fetchCategoryPosts();
   }, [category]);
 
+  const filteredPosts = searchQuery
+    ? posts.filter((post) => post.title.rendered.includes(searchQuery))
+    : posts;
+
   return (
     <div className="container">
       <LinkComponent className={"back-link"} url={"/"}>
         Back
       </LinkComponent>
       <div className="posts">
-        {posts.map((post: PostsType) => (
+        {filteredPosts.map((post: PostsType) => (
           <div key={post.id} className="single-post">
             <div className="post-img">
               {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (

@@ -17,7 +17,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Blog searchQuery={searchQuery} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/category/:category" element={<CategoryPosts />} />
+          <Route
+            path="/category/:category"
+            element={<CategoryPosts searchQuery={searchQuery} />}
+          />
           <Route path="/post/:slug" element={<ArticlePage />} />
         </Routes>
       </BrowserRouter>
