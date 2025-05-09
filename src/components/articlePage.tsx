@@ -27,7 +27,7 @@ export default function Post() {
       </LinkComponent>
       <h1 className="single-article-title">{post.title.rendered}</h1>
       {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
-        <div className="sinlgle-article-image">
+        <div className="single-article-image">
           <img
             src={post._embedded["wp:featuredmedia"][0].source_url}
             alt={post.title.rendered}
