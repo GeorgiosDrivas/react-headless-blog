@@ -9,6 +9,7 @@ export default function Blog() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [articles, setArticles] = useState<PostsType[]>([]);
   const { searchQuery } = useSearchContext();
+  const loading = articles.length === 0;
 
   useEffect(() => {
     const getCategories = async () => {
@@ -54,39 +55,45 @@ export default function Blog() {
           ))}
       </div>
       <div className="posts">
-        {filteredArticles.map((article: PostsType) => (
-          <div key={article.id} className="single-post">
-            <div className="post-img">
-              {article._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
-                <img
-                  src={article._embedded["wp:featuredmedia"][0].source_url}
-                  alt={article.title.rendered}
-                />
-              )}
-            </div>
-            <div className="post-details">
-              <LinkComponent
-                className={"post-title"}
-                url={`/post/${article.slug}`}
-              >
-                <p>{article.title.rendered}</p>
-              </LinkComponent>
-              <p className="post-date">{article.date.split("T")[0]}</p>
-              <div
-                className="post-excerpt"
-                dangerouslySetInnerHTML={{
-                  __html: article.excerpt.rendered.slice(0, 150),
-                }}
-              />
-              <LinkComponent
-                url={`/post/${article.slug}`}
-                className={"read-more-btn"}
-              >
-                Read more
-              </LinkComponent>
-            </div>
+        {loading ? (
+          <div className="loading">
+            <p>Loading...</p>
           </div>
-        ))}
+        ) : (
+          filteredArticles.map((article: PostsType) => (
+            <div key={article.id} className="single-post">
+              <div className="post-img">
+                {article._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
+                  <img
+                    src={article._embedded["wp:featuredmedia"][0].source_url}
+                    alt={article.title.rendered}
+                  />
+                )}
+              </div>
+              <div className="post-details">
+                <LinkComponent
+                  className={"post-title"}
+                  url={`/post/${article.slug}`}
+                >
+                  <p>{article.title.rendered}</p>
+                </LinkComponent>
+                <p className="post-date">{article.date.split("T")[0]}</p>
+                <div
+                  className="post-excerpt"
+                  dangerouslySetInnerHTML={{
+                    __html: article.excerpt.rendered.slice(0, 150),
+                  }}
+                />
+                <LinkComponent
+                  url={`/post/${article.slug}`}
+                  className={"read-more-btn"}
+                >
+                  Read more
+                </LinkComponent>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
