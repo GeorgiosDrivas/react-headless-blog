@@ -1,25 +1,15 @@
 import { useEffect, useState } from "react";
-import { apiCategoriesPath, apiPostsPath } from "../../variables";
-import { CategoryType } from "../types/blog-page-types";
+import { apiPostsPath } from "../../variables";
 import { PostsType } from "../types/posts-types";
 import LinkComponent from "./Link";
 import { useSearchContext } from "../searchContext";
 
-export default function Blog() {
-  const [categories, setCategories] = useState<CategoryType[]>([]);
+export default function Landing() {
   const [articles, setArticles] = useState<PostsType[]>([]);
   const { searchQuery } = useSearchContext();
   const loading = articles.length === 0;
 
   useEffect(() => {
-    const getCategories = async () => {
-      fetch(apiCategoriesPath)
-        .then((response) => response.json())
-        .then((data) => {
-          setCategories(data);
-        });
-    };
-
     const getPosts = async () => {
       fetch(apiPostsPath)
         .then((response) => response.json())
@@ -28,7 +18,6 @@ export default function Blog() {
         });
     };
 
-    getCategories();
     getPosts();
   }, []);
 
@@ -41,19 +30,6 @@ export default function Blog() {
 
   return (
     <div className="container">
-      <div id="categories">
-        {categories
-          .filter((cat) => cat.name !== "Uncategorized")
-          .map((category) => (
-            <LinkComponent
-              url={`/category/${category.slug}`}
-              className={"blog-category"}
-              key={category.name}
-            >
-              <p>{category.name}</p>
-            </LinkComponent>
-          ))}
-      </div>
       <div className="posts">
         {loading ? (
           <div className="loading">
